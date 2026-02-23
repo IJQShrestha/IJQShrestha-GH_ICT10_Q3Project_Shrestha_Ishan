@@ -1,46 +1,64 @@
 from pyscript import display, document
 
+def intramquali(e):
+    document.getElementById("output").innerHTML = " "
 
-def update_sections(e):
-    grade = document.getElementById("grade").value
-    section = document.getElementById("section")
-
-    if grade == "gr10":
-        section.innerHTML = """
-        <option>Ruby</option>
-        <option>Sapphire</option>
-        <option>Topaz</option>
-        <option>Emerald</option>
-        """
-
-    elif grade == "gr11":
-        section.innerHTML = """
-        <option>Luna</option>
-        <option>Hidalgo</option>
-        <option>Amorsolo</option>
-        """
-
-
-def account_authenticator(e):
-    document.getElementById("output").innerHTML = ""
-
-    grade = document.getElementById("grade").value
     section = document.getElementById("section").value
+    grade = int(document.getElementById("grade").value)
 
-    if grade == "gr10":
-        if section == "Ruby":
-            display("You are part of the Blue Bears", target="output")
-        elif section == "Sapphire":
-            display("You are part of the Green Hornets", target="output")
-        elif section == "Topaz":
-            display("You are part of the Yellow Tigers", target="output")
-        elif section == "Emerald":
-            display("You are part of the Red Bulldogs", target="output")
+    registration = document.querySelector('input[name="reg"]:checked')
+    medical = document.querySelector('input[name="med"]:checked')
 
-    elif grade == "gr11":
-        if section == "Luna":
-            display("You are part of the Blue Bears", target="output")
-        elif section == "Hidalgo":
-            display("You are part of the Green Hornets", target="output")
-        elif section == "Amorsolo":
-            display("You are part of the Yellow Tigers", target="output")
+    if registration is None or medical is None or section == "":
+        display("Complete the forum", target="output")
+
+    elif registration.value != "yes":
+        display("Register to join.", target="output")
+
+    elif medical.value != "cleared":
+        display("Get a medical clearance.", target="output")
+
+
+
+    elif grade < 7 or grade > 10:
+        display("Required Grades 7-10", target="output")
+    elif grade == 7 and section == "Sapphire":
+        display("You're in Green Hornets", target="output")
+    elif grade == 7 and section == "Ruby":
+        display("You're in Blue Bears", target="output")
+    elif grade == 7 and section == "Topaz":
+        display("You're in Red Bull Dogs", target="output")
+    elif grade == 7 and section == "Emerald":
+        display("You're in Yellow Tigers", target="output")
+
+
+    elif grade == 8 and section == "Sapphire":
+        display("You're in Green Hornets", target="output")
+    elif grade == 8 and section == "Ruby":
+        display("You're in Blue Bears", target="output")
+    elif grade == 8 and section == "Topaz":
+        display("You're in Red Bull Dogs", target="output")
+    elif grade == 8 and section == "Emerald":
+        display("You're in Yellow Tigers", target="output")
+
+    elif grade == 9 and section == "Sapphire":
+        display("You're in Green Hornets", target="output")
+    elif grade == 9 and section == "Ruby":
+        display("You're in Blue Bears", target="output")
+    elif grade == 9 and section == "Topaz":
+        display("You're in Red Bull Dogs", target="output")
+    elif grade == 9 and section == "Emerald":
+        display("You're in Yellow Tigers", target="output")
+
+
+    elif grade == 10 and section == "Sapphire":
+        display("You're in Green Hornets", target="output")
+    elif grade == 10 and section == "Ruby":
+        display("You're in Blue Bears", target="output")
+    elif grade == 10 and section == "Topaz":
+        display("You're in Red Bull Dogs", target="output")
+    elif grade == 10 and section == "Emerald":
+        display("You're in Yellow Tigers", target="output")
+
+    else:
+        display("Invalid input.", target="output")
